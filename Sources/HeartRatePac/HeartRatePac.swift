@@ -9,13 +9,21 @@ import SwiftUI
 
 @available(macOS 10.15, *)
 @available(iOS 13.0, *)
-struct HeartRatePac: View {
+public struct HeartRatePac: View {
     var maxRating : Int 
     @Binding var currentRating : Int
     var width = 30
     var openSymbol : String
     var fillSybol : String
-    var body: some View {
+    
+    public init(maxRating: Int, currentRating: Binding<Int>, width: Int = 30, openSymbol: String, fillSybol: String) {
+        self.maxRating = maxRating
+        self._currentRating = currentRating
+        self.width = width
+        self.openSymbol = openSymbol
+        self.fillSybol = fillSybol
+    }
+    public var body: some View {
         HStack{
             ForEach(0..<self.maxRating){  rating in
                 if #available(macOS 11.0, *) {
