@@ -12,16 +12,18 @@ import SwiftUI
 public struct HeartRatePac: View {
     var maxRating : Int 
     @Binding var currentRating : Int
-    var width = 30
+    var width : Int
     var openSymbol : String
     var fillSybol : String
+    var colorofIcon : Color
     
-    public init(maxRating: Int, currentRating: Binding<Int>, width: Int = 30, openSymbol: String, fillSybol: String) {
+    public init(maxRating: Int, currentRating: Binding<Int>, width: Int = 30, openSymbol: String, fillSybol: String, colorofIcon : Color) {
         self.maxRating = maxRating
         self._currentRating = currentRating
         self.width = width
         self.openSymbol = openSymbol
         self.fillSybol = fillSybol
+        self.colorofIcon = colorofIcon
     }
     public var body: some View {
         HStack{
@@ -45,6 +47,6 @@ public struct HeartRatePac: View {
 struct HeartRating_Previews: PreviewProvider {
     @available(macOS 10.15, *)
     static var previews: some View {
-        HeartRatePac(maxRating: 5, currentRating: .constant(2), openSymbol: "star", fillSybol : "star.fill")
+        HeartRatePac(maxRating: 5, currentRating: .constant(2), openSymbol: "star", fillSybol : "star.fill", colorofIcon: Color.red)
     }
 }
