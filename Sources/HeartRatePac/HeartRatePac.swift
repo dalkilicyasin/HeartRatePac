@@ -32,6 +32,7 @@ public struct HeartRatePac: View {
                     Image(systemName: rating < self.currentRating ? self.fillSybol : openSymbol)
                         .resizable()
                         .scaledToFit()
+                        .foregroundColor(self.colorofIcon)
                         .onTapGesture {
                             self.currentRating = rating + 1
                         }
